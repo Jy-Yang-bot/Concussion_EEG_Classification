@@ -7,7 +7,7 @@ We selected the decision tree algorithm (criterion: entropy) using theta frequen
 The steps of the ML classification are listed below:
 
 ## Concussion dataset
-The dataset will be provided by the corresponding authors of this project and the lab PI.
+The dataset data_step01_jiayue.csv will be provided by the corresponding authors of this project and the lab PI.
 
 ## Step 0: Define helper functions
 This step will define some helper functions for the following steps. We will define functions for:
