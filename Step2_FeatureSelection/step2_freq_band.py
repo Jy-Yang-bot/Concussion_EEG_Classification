@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 # Goal: test the accuracy of performance by applying features in specific frequency band in the training
 # Edit: JY Yang, Feb. 12
 # Adapted from Liz code Best_Params_Loops_StateComparison_BaselineVsCold
@@ -19,10 +13,6 @@ import pickle
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 
-
-# In[2]:
-
-
 # import helper function modules
 import import_ipynb
 from helper_general_info import *
@@ -31,23 +21,17 @@ from helper_group_classify import *
 from helper_classification_script import *
 
 
-# In[3]:
-
-
 # Import and read the data file
-df = pd.read_csv('data_step01_jiayue_practice.csv')
+df = pd.read_csv('data_step01_jiayue.csv')
 # print the information about imbalance check of the dataset
 print_imbalance_info(df)
 
 
-# In[5]:
-
-
 # define the specific frequency band we want to use in analysis
 band_name = 'theta'
-
-
-# In[5]:
+# band_name = 'alpha'
+# band_name = 'delta'
+# band_name = 'beta'
 
 
 # Logistic Regression Models
@@ -77,9 +61,6 @@ for c in C_iter:
     pickle.dump(clf_data, pain_final_performance_log_file)
     pain_final_performance_log_file.close()
     print(sum(accuracies))
-
-
-# In[6]:
 
 
 # SVM Models
@@ -112,11 +93,9 @@ for c in C_iter:
         pickle.dump(clf_data, pain_final_performance_svm_file)
         pain_final_performance_svm_file.close()
         print(sum(accuracies))
+        
 
-
-# In[7]:
-
-
+        
 # Decision Tree Models
 Crit = ['gini', 'entropy']
 for cr in Crit:
@@ -146,8 +125,6 @@ for cr in Crit:
     print(sum(accuracies))
 
 
-# In[8]:
-
 
 # LDA model
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
@@ -176,10 +153,3 @@ pain_final_performance_lda_file = open("concussion_perform_select_lda_%s.pkl" % 
 pickle.dump(clf_data, pain_final_performance_lda_file)
 pain_final_performance_lda_file.close()
 print(sum(accuracies))
-
-
-# In[ ]:
-
-
-
-
