@@ -8,17 +8,22 @@ The steps of the ML classification are listed below:
 
 ## Step 0: Define helper functions
 This step will define some helper functions for the following steps. We will define functions for:
-- helper_general_info: print the representation and counts for different injury status in the concussion dataset.
+- helper_general_info.py: print the representation and counts for different injury status in the concussion dataset.
 
-- helper_group_classify: pre-process the dataset and split into X (features), y(injury status), and id_groups(patient id). This group classify helper function includes: 1) full dataset splitting; 2) averaged subset based on different regions of interest (ROI) (frontal, temporal, parietal, occipital); 3) multiple subsets based on frequency band (delta, theta, alpha, and beta) and functional connectivity method (wPLI vs. AEC); 4) test set manipulations for permutation and bootstrapping tests.
+- helper_group_classify.py: pre-process the dataset and split into X (features), y(injury status), and id_groups(patient id). This group classify helper function includes: 1) full dataset splitting; 2) averaged subset based on different regions of interest (ROI) (frontal, temporal, parietal, occipital); 3) multiple subsets based on frequency band (delta, theta, alpha, and beta) and functional connectivity method (wPLI vs. AEC); 4) test set manipulations for permutation and bootstrapping tests.
 
-- helper_classification_script: perform the classification training and testing. This function will return the accuracies of classification, f1 scores, confusion matrix, result of predicted injury status, and the actual injury status of the patients. 
+- helper_classification_script.py: perform the classification training and testing. This function will return the accuracies of classification, f1 scores, confusion matrix, result of predicted injury status, and the actual injury status of the patients. 
 
-- helper_pickle_loading: this function will load the pickle file based on their names. It will extract the full accuracy data in the pickle files and calculate the mean accuracy of each hyperparameter (C).
+- helper_pickle_loading.py: this function will load the pickle file based on their names. It will extract the full accuracy data in the pickle files and calculate the mean accuracy of each hyperparameter (C).
 
 
 ## Step 1: Feature selection
-This step will create different subsets of features to avoid model overfitting. We included five catagories of feature reduction: 1) all EEG features; 2) PCA selected features with 80% variance; 3) averaged ROI features as described above; 4) separated frequency band features (delta, theta, alpha, and beta); 5) connectivity types (wPLI vs. AEC).
+This step will create different subsets of features to avoid model overfitting. We included five catagories of feature reduction:
+- step2_all_feature.py: all EEG features
+- step2_pca_80%var.py: PCA selected features with 80% variance
+- step2_mean_roi.py: averaged ROI features as described above
+- step2_freq_band.py: separated frequency band features (delta, theta, alpha, and beta)
+- step2_connectivity.py: connectivity types (wPLI vs. AEC).
 
 #### Four algorithms will be included: logistic regression, support vector machine (SVM), decision tree, and linear discriminant analysis (LDA).
 
