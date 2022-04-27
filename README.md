@@ -14,6 +14,8 @@ This step will define some helper functions for the following steps. We will def
 
 - helper_classification_script: perform the classification training and testing. This function will return the accuracies of classification, f1 scores, confusion matrix, result of predicted injury status, and the actual injury status of the patients. 
 
+- helper_pickle_loading: this function will load the pickle file based on their names. It will extract the full accuracy data in the pickle files and calculate the mean accuracy of each hyperparameter (C).
+
 
 ## Step 1: Feature selection
 This step will create different subsets of features to avoid model overfitting. We included five catagories of feature reduction: 1) all EEG features; 2) PCA selected features with 80% variance; 3) averaged ROI features as described above; 4) separated frequency band features (delta, theta, alpha, and beta); 5) connectivity types (wPLI vs. AEC).
