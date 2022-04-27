@@ -23,7 +23,7 @@ from helper_classification_script import *
 
 
 # Import and read the data file
-df = pd.read_csv('data_step01_jiayue_practice.csv')
+df = pd.read_csv('data_step01_jiayue.csv')
 # print the information about imbalance check of the dataset
 print_imbalance_info(df)
 
