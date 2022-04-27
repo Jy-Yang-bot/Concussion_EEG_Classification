@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 # Goal: test the accuracy of performance by spliting the input features into averged regional values
 # Edit: JY Yang, Feb. 10
 
@@ -20,10 +14,6 @@ from sklearn.impute import SimpleImputer
 from matplotlib.backends.backend_pdf import PdfPages
 from sklearn.decomposition import PCA
 
-
-# In[2]:
-
-
 # import helper function modules
 import import_ipynb
 from helper_general_info import *
@@ -32,16 +22,10 @@ from helper_group_classify import *
 from helper_classification_script import *
 
 
-# In[3]:
-
-
 # Import and read the data file
-df = pd.read_csv('data_step01_jiayue_practice.csv')
+df = pd.read_csv('data_step01_jiayue.csv')
 # print the information about imbalance check of the dataset
 print_imbalance_info(df)
-
-
-# In[4]:
 
 
 # perform transformation (pca) to the dataset
@@ -59,22 +43,13 @@ X = impute.fit_transform(X_scaled)
 
 
 # return the X dataset back to a dataframe
-
 X = pd.DataFrame(X, columns = column_names)
-
-
-# In[5]:
-
-
 # modulate the X feature dataset, change it into the new X with mean values by interest areas
 X = mean_area_feature(X)
-
-
-# In[6]:
-
-
 # to retain an explained variance of 80%, we need to have 45 components
 C_iter = [0.1, 0.2, 0.3, 0.4, 0.5, 1, 2, 5, 10]
+
+
 
 # Logistic Regression Models
 for c in C_iter:
@@ -96,8 +71,6 @@ for c in C_iter:
     pain_final_performance_log_file.close()
     print(sum(accuracies))
 
-
-# In[7]:
 
 
 # SVM Models
@@ -125,9 +98,6 @@ for c in C_iter:
         print(sum(accuracies))
 
 
-# In[8]:
-
-
 # Decision Tree Models
 Crit = ['gini', 'entropy']
 for cr in Crit:
@@ -150,8 +120,6 @@ for cr in Crit:
     print(sum(accuracies))
 
 
-# In[9]:
-
 
 # LDA model
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
@@ -173,10 +141,3 @@ pain_final_performance_lda_file = open('concussion_perform_select_lda_mean.pkl',
 pickle.dump(clf_data, pain_final_performance_lda_file)
 pain_final_performance_lda_file.close()
 print(sum(accuracies))
-
-
-# In[ ]:
-
-
-
-
