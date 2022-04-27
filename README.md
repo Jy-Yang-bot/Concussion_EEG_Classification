@@ -6,6 +6,9 @@ The project to use machine learning methods to determine if functional connectiv
 We selected the decision tree algorithm (criterion: entropy) using theta frequency EEG features as the final model of classification.
 The steps of the ML classification are listed below:
 
+## Concussion dataset
+The dataset will be provided by the corresponding authors of this project and the lab PI.
+
 ## Step 0: Define helper functions
 This step will define some helper functions for the following steps. We will define functions for:
 - helper_general_info.py: print the representation and counts for different injury status in the concussion dataset.
