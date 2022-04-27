@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 # Goal: test the accuracy of performance by different modifications (feature reduction methods)
 # Edit: JY Yang, Feb. 20
 # Adapted from Liz code Step0_DefineModelsandTests
@@ -12,20 +6,16 @@ import pickle
 import pandas as pd
 import numpy as np
 
-
-# In[2]:
-
-
+# define a function that load the pickle file based on the name input
 def load_pickle(filename):
     '''Helper function to unpickle the pickled python obj'''
+    # open and load the data of a pickle file based on the name
     file = open(filename, 'rb')
     data = pickle.load(file)
     file.close()
-
+    # output the file data
     return data
 
-
-# In[3]:
 
 
 # define the functions of extracting data from the pickle files
@@ -104,4 +94,3 @@ def data_extraction(L_iter, pkl_name):
         '''
         
     return flat_list, mean_scores_acc_allmodels
-
