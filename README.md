@@ -19,14 +19,21 @@ This step will define some helper functions for the following steps. We will def
 
 - helper_pickle_loading.py: this function will load the pickle file based on their names. It will extract the full accuracy data in the pickle files and calculate the mean accuracy of each hyperparameter (C).
 
+- vote_helper_classification: this function will calculate the accuracy of the voted method.
+
 
 ## Step 1: Feature selection
 This step will create different subsets of features to avoid model overfitting. We included five catagories of feature reduction:
-- step2_all_feature.py: all EEG features
-- step2_pca_80%var.py: PCA selected features with 80% variance
-- step2_mean_roi.py: averaged ROI features as described above
-- step2_freq_band.py: separated frequency band features (delta, theta, alpha, and beta)
-- step2_connectivity.py: connectivity types (wPLI vs. AEC).
+- step1_all_feature.py: all EEG features
+
+- step1_pca_80%var.py: PCA selected features with 80% variance
+
+- step1_mean_roi.py: averaged ROI features as described above
+
+- step1_freq_band.py: separated frequency band features (delta, theta, alpha, and beta)
+
+- step1_connectivity.py: connectivity types (wPLI vs. AEC).
+
 
 #### Four algorithms will be included: logistic regression, support vector machine (SVM), decision tree, and linear discriminant analysis (LDA).
 
@@ -45,4 +52,4 @@ Based on the non-voted and voted accuracies, we will decide the optimal model wi
 
 
 ## Step 3: Decision tree classification
-
+By the decision tree algorithm (criterion: entropy) using theta frequency EEG features, this step will train the model and calculate the accuracy for both non-voted and voted methods. The model training step3_final_vote_nonvote_tree.py will save the accuracy results in pickle files, for non-voted and voted methods respectively.
